@@ -108,6 +108,7 @@ export default async function LessonPage({
             {hasBlocks ? (
                 /* ── Live Build Session ─────────────────────────── */
                 <LessonSession
+                    key={lesson.id}
                     blocks={lesson.blocks as Parameters<typeof LessonSession>[0]['blocks']}
                     lessonTitle={lesson.title}
                     lessonDescription={lesson.description}

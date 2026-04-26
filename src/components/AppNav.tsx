@@ -42,7 +42,8 @@ export default function AppNav() {
     }
 
     const navLinks = [
-        { href: '/dashboard', label: 'Dashboard' },
+        { href: '/', label: 'Dashboard' },
+        { href: '/dashboard/projects', label: 'Projects' },
         { href: '/dashboard/scoreboard', label: 'Scoreboard' },
     ]
 
@@ -50,7 +51,7 @@ export default function AppNav() {
         <nav className="fixed top-0 left-0 right-0 z-50 border-b border-dark-400/50 bg-dark/80 backdrop-blur-xl">
             <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6">
                 {/* Logo */}
-                <Link href="/dashboard" className="flex items-center gap-2 flex-shrink-0">
+                <Link href="/" className="flex items-center gap-2 flex-shrink-0">
                     <div className="flex h-7 w-7 items-center justify-center bg-primary/10 border border-primary/20">
                         <span className="font-mono text-xs font-bold text-primary">V</span>
                     </div>
@@ -62,8 +63,8 @@ export default function AppNav() {
                 {/* Center nav links */}
                 <div className="flex items-center gap-1">
                     {navLinks.map(link => {
-                        const isActive = link.href === '/dashboard'
-                            ? pathname === '/dashboard'
+                        const isActive = link.href === '/'
+                            ? pathname === '/'
                             : pathname.startsWith(link.href)
                         return (
                             <Link

@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import Navbar from '@/components/Navbar'
+import AppNav from '@/components/AppNav'
+import DashboardWorkspace from '@/components/DashboardWorkspace'
 import { createClient } from '@/lib/supabase/server'
 
 export default async function LandingPage() {
@@ -16,6 +18,20 @@ export default async function LandingPage() {
   }
 
   const { data: { user } } = await supabase.auth.getUser()
+
+  // Authenticated users see the dashboard at /
+  if (user) {
+    return (
+      <div className="min-h-screen bg-dark pt-14">
+        <AppNav />
+        <main className="w-full">
+          <div className="mx-auto max-w-7xl p-6 sm:p-8">
+            <DashboardWorkspace />
+          </div>
+        </main>
+      </div>
+    )
+  }
 
   const { data: lessons } = await supabase
     .from('lessons')

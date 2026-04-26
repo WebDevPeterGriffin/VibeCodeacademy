@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 // ── Block type definitions ─────────────────────────────────────────────────────
 
@@ -133,7 +134,6 @@ export default function LessonSession({
     moduleTitle,
     prevSlug,
     nextSlug,
-    isCompleted,
     lessonId,
     isLoggedIn,
 }: Props) {
@@ -141,12 +141,13 @@ export default function LessonSession({
     const renderableBlocks = blocks.filter(b => b.type !== 'shipped')
     const shippedBlock = blocks.find(b => b.type === 'shipped') as ShippedBlock | undefined
 
+    const router = useRouter()
     const [currentIndex, setCurrentIndex] = useState(0)
     const [doneIndices, setDoneIndices] = useState<Set<number>>(new Set())
     const [completedCheckpoints, setCompletedCheckpoints] = useState<Set<number>>(new Set())
     const [flippedIndex, setFlippedIndex] = useState<number | null>(null)
     const [reactionText, setReactionText] = useState('')
-    const [isShipped, setIsShipped] = useState(isCompleted)
+    const [isShipped, setIsShipped] = useState(false)
     const [copiedKey, setCopiedKey] = useState<string | null>(null)
     const sessionEndRef = useRef<HTMLDivElement>(null)
 
@@ -164,15 +165,15 @@ export default function LessonSession({
     useEffect(() => {
         if (totalCheckpoints > 0 && completedCheckpoints.size === totalCheckpoints) {
             setTimeout(() => setIsShipped(true), 600)
-            if (isLoggedIn && !isCompleted) {
+            if (isLoggedIn) {
                 fetch('/api/progress', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ lesson_id: lessonId }),
-                })
+                }).then(() => router.refresh())
             }
         }
-    }, [completedCheckpoints, totalCheckpoints, isLoggedIn, isCompleted, lessonId])
+    }, [completedCheckpoints, totalCheckpoints, isLoggedIn, lessonId, router])
 
     const advance = useCallback(() => {
         setCurrentIndex(prev => Math.min(prev + 1, renderableBlocks.length))

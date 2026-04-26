@@ -40,14 +40,13 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(url)
     }
 
-    // Redirect authenticated users away from public pages
+    // Redirect authenticated users away from auth pages
     if (user && (
-        request.nextUrl.pathname === '/' ||
         request.nextUrl.pathname === '/login' ||
         request.nextUrl.pathname === '/signup'
     )) {
         const url = request.nextUrl.clone()
-        url.pathname = '/dashboard'
+        url.pathname = '/'
         return NextResponse.redirect(url)
     }
 
