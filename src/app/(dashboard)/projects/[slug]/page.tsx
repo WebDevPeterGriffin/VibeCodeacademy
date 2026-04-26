@@ -93,7 +93,7 @@ export default async function ProjectOverviewPage({
         <div className="animate-fade-in">
             {/* ── Back link ─────────────────────────────────────── */}
             <a
-                href="/dashboard/projects"
+                href="/projects"
                 className="mb-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-gray-600 hover:text-gray-400 transition-colors"
             >
                 ← Projects
