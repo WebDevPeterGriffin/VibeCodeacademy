@@ -275,8 +275,8 @@ export default function LessonSession({
                             </Link>
                         ) : (
                             <Link
-                                href="/dashboard"
-                                className="border border-primary bg-primary/10 px-8 py-3 font-mono text-sm text-primary-300 uppercase tracking-widest hover:bg-primary/20 transition-colors"
+                                href="/"
+                                className="group inline-flex min-h-[44px] items-center gap-2 border border-dark-400 bg-dark-100 px-6 px-4 py-2 font-mono text-xs uppercase tracking-widest text-primary-300 transition-all hover:bg-dark-200"
                             >
                                 Back to Workspace →
                             </Link>

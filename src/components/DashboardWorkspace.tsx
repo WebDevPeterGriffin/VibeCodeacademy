@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
-import DashboardTimeline from '@/app/dashboard/DashboardTimeline'
+import DashboardTimeline from '@/app/(dashboard)/DashboardTimeline'
 
 interface ActiveProject {
     project_id: string
@@ -106,8 +106,8 @@ export default async function DashboardWorkspace() {
                         </p>
                         {isAdmin && (
                             <Link
-                                href="/dashboard/admin"
-                                className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-widest text-primary-300/70 hover:text-primary-300 transition-colors"
+                                href="/admin"
+                                className="group col-span-1 flex flex-col items-center justify-center p-6 bg-dark-50 border border-dark-400 hover:bg-dark-100 hover:border-primary/50 transition-colors"
                             >
                                 ⚙ Admin Panel →
                             </Link>

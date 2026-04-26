@@ -47,8 +47,8 @@ export default function Navbar() {
 
                 <div className="flex items-center gap-3">
                     {user ? (
-                        <Link href="/dashboard" className="btn-primary text-sm py-2 px-4">
-                            My Workspace
+                        <Link href="/" className="btn-primary text-sm py-2 px-4">
+                            Workspace
                         </Link>
                     ) : (
                         <>

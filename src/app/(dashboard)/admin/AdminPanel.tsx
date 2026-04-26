@@ -126,12 +126,14 @@ export default function AdminPanel({ moduleCount: initialModules, lessonCount: i
         <div className="space-y-8 max-w-2xl">
 
             {/* ── Back link ─────────────────────────────────────────────── */}
-            <Link
-                href="/dashboard"
-                className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-gray-600 hover:text-gray-300 transition-colors"
-            >
-                ← Back to Workspace
-            </Link>
+            <div className="mb-8 border-b border-dark-400 pb-4">
+                <Link
+                    href="/"
+                    className="mb-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-gray-500 hover:text-primary-300 transition-colors"
+                >
+                    ← Back to Workspace
+                </Link>
+            </div>
 
             {/* ── Current stats ─────────────────────────────────────────── */}
             <div className="border border-dark-400 bg-dark-100 p-6">

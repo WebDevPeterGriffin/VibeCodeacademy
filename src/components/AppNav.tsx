@@ -43,8 +43,8 @@ export default function AppNav() {
 
     const navLinks = [
         { href: '/', label: 'Dashboard' },
-        { href: '/dashboard/projects', label: 'Projects' },
-        { href: '/dashboard/scoreboard', label: 'Scoreboard' },
+        { href: '/projects', label: 'Projects' },
+        { href: '/scoreboard', label: 'Scoreboard' },
     ]
 
     return (
@@ -70,11 +70,10 @@ export default function AppNav() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`px-4 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors ${
-                                    isActive
-                                        ? 'text-white bg-dark-300 border border-dark-400'
-                                        : 'text-gray-500 hover:text-gray-300'
-                                }`}
+                                className={`px-4 py-1.5 font-mono text-[11px] uppercase tracking-widest transition-colors ${isActive
+                                    ? 'text-white bg-dark-300 border border-dark-400'
+                                    : 'text-gray-500 hover:text-gray-300'
+                                    }`}
                             >
                                 {link.label}
                             </Link>
@@ -86,11 +85,10 @@ export default function AppNav() {
                 <div className="relative flex-shrink-0" ref={dropdownRef}>
                     <button
                         onClick={() => setOpen(o => !o)}
-                        className={`flex h-8 w-8 items-center justify-center border font-mono text-[11px] font-bold transition-colors ${
-                            open
-                                ? 'border-primary/60 bg-primary/10 text-primary-300'
-                                : 'border-dark-400 bg-dark-200 text-gray-400 hover:border-dark-300 hover:text-gray-200'
-                        }`}
+                        className={`flex h-8 w-8 items-center justify-center border font-mono text-[11px] font-bold transition-colors ${open
+                            ? 'border-primary/60 bg-primary/10 text-primary-300'
+                            : 'border-dark-400 bg-dark-200 text-gray-400 hover:border-dark-300 hover:text-gray-200'
+                            }`}
                         aria-label="Profile menu"
                     >
                         {user ? getInitials(user.email ?? 'U') : '?'}
@@ -111,7 +109,7 @@ export default function AppNav() {
                             {/* Menu items */}
                             <div className="py-1">
                                 <Link
-                                    href="/dashboard/profile"
+                                    href="/profile"
                                     onClick={() => setOpen(false)}
                                     className="flex items-center gap-3 px-4 py-2.5 font-mono text-[11px] uppercase tracking-widest text-gray-400 hover:text-white hover:bg-dark-200 transition-colors"
                                 >
