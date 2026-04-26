@@ -1,5 +1,14 @@
 import { redirect } from 'next/navigation'
+import { createClient } from '@/lib/supabase/server'
+import DashboardWorkspace from '@/components/DashboardWorkspace'
 
-export default function DashboardPage() {
-    redirect('/')
+export default async function DashboardPage() {
+    const supabase = createClient()
+    const { data: { user } } = await supabase.auth.getUser()
+
+    if (!user) {
+        redirect('/login')
+    }
+
+    return <DashboardWorkspace />
 }
