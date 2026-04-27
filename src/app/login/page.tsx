@@ -25,12 +25,21 @@ export default function LoginPage() {
         })
 
         if (error) {
-            setError(error.message)
+            const msg = error.message.toLowerCase()
+            if (msg.includes('invalid login credentials') || msg.includes('invalid credentials')) {
+                setError('Wrong email or password. Double-check and try again.')
+            } else if (msg.includes('email not confirmed')) {
+                setError('You need to confirm your email first. Check your inbox for a confirmation link.')
+            } else if (msg.includes('too many requests')) {
+                setError('Too many attempts. Wait a minute and try again.')
+            } else {
+                setError(error.message)
+            }
             setLoading(false)
             return
         }
 
-        router.push('/dashboard')
+        router.push('/')
         router.refresh()
     }
 
@@ -88,9 +97,14 @@ export default function LoginPage() {
                             />
                         </div>
                         <div>
-                            <label htmlFor="password" className="mb-1.5 block text-xs font-medium text-gray-400">
-                                Password
-                            </label>
+                            <div className="flex items-center justify-between">
+                                <label htmlFor="password" className="mb-1.5 block text-xs font-medium text-gray-400">
+                                    Password
+                                </label>
+                                <Link href="/forgot-password" className="mb-1.5 text-xs text-primary-300/70 hover:text-primary-300 transition-colors">
+                                    Forgot password?
+                                </Link>
+                            </div>
                             <input
                                 id="password"
                                 type="password"
