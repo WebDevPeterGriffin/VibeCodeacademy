@@ -45,6 +45,13 @@ export default function SignupPage() {
             return
         }
 
+        // Empty identities = email already exists in the system
+        if (data.user?.identities?.length === 0) {
+            setError('An account with this email already exists. Try logging in instead.')
+            setLoading(false)
+            return
+        }
+
         // If no session, email confirmation is required
         if (!data.session) {
             setEmailSent(true)

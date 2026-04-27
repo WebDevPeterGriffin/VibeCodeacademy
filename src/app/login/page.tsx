@@ -27,9 +27,9 @@ export default function LoginPage() {
         if (error) {
             const msg = error.message.toLowerCase()
             if (msg.includes('invalid login credentials') || msg.includes('invalid credentials')) {
-                setError('Wrong email or password. Double-check and try again.')
+                setError('Wrong email or password. If you signed up with Google, use the Google button below. If you signed up with email, check your inbox (and spam) for a confirmation link.')
             } else if (msg.includes('email not confirmed')) {
-                setError('You need to confirm your email first. Check your inbox for a confirmation link.')
+                setError('Your email isn\'t confirmed yet. Check your inbox and spam folder for a confirmation link.')
             } else if (msg.includes('too many requests')) {
                 setError('Too many attempts. Wait a minute and try again.')
             } else {
