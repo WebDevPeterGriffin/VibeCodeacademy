@@ -95,7 +95,7 @@ export default async function LandingPage() {
           {/* CTAs */}
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
-              href={user ? '/dashboard' : '/signup'}
+              href={user ? '/' : '/signup'}
               className="btn-primary min-h-[44px] px-8 py-3 text-base"
             >
               {user ? 'Go to My Workspace' : 'Start Building Free'}
@@ -499,7 +499,7 @@ export default async function LandingPage() {
 
           <div className="mt-16 text-center">
             <Link
-              href={user ? '/dashboard' : '/signup'}
+              href={user ? '/' : '/signup'}
               className="btn-primary min-h-[44px] px-8 py-3 text-base"
             >
               {user ? 'Go to My Workspace' : 'Start Building Free'}

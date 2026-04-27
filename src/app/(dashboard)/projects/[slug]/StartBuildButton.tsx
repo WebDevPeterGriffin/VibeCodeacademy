@@ -21,7 +21,7 @@ export default function StartBuildButton({ projectId }: { projectId: string }) {
                 const data = await res.json()
                 throw new Error(data.error ?? 'Failed to start project')
             }
-            router.push('/dashboard')
+            router.push('/')
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Something went wrong')
             setLoading(false)

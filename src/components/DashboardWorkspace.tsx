@@ -134,7 +134,7 @@ export default async function DashboardWorkspace() {
                     <p className="mb-3 font-mono text-[10px] uppercase tracking-widest text-amber-400">
                         Active Project
                     </p>
-                    <Link href={`/dashboard/projects/${activeProject.projects.slug}`}>
+                    <Link href={`/projects/${activeProject.projects.slug}`}>
                         <div className="group flex items-center justify-between border border-amber-500/30 bg-amber-500/5 p-5 hover:border-amber-500/60 hover:bg-amber-500/10 transition-colors">
                             <div>
                                 <span className="font-mono text-[10px] uppercase tracking-widest text-gray-500">

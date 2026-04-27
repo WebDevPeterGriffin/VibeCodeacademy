@@ -63,7 +63,7 @@ export default async function ProjectsPage() {
 
 function ProjectCard({ project }: { project: Project }) {
     return (
-        <Link href={`/dashboard/projects/${project.slug}`} className="group block">
+        <Link href={`/projects/${project.slug}`} className="group block">
             <div className="relative h-full border border-dark-400 bg-dark-100 p-6 transition-all duration-300 hover:scale-[1.015] hover:border-amber-500/60 hover:shadow-[0_0_30px_rgba(245,158,11,0.12)]">
                 {/* Top badges */}
                 <div className="mb-5 flex items-center gap-2 flex-wrap">
