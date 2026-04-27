@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { useEffect, useRef, useState } from 'react'
 import type { User } from '@supabase/supabase-js'
@@ -14,7 +14,6 @@ function getInitials(email: string) {
 
 export default function AppNav() {
     const pathname = usePathname()
-    const router = useRouter()
     const [user, setUser] = useState<User | null>(null)
     const [open, setOpen] = useState(false)
     const [signingOut, setSigningOut] = useState(false)
@@ -38,7 +37,7 @@ export default function AppNav() {
     async function handleSignOut() {
         setSigningOut(true)
         await supabase.auth.signOut()
-        router.push('/')
+        window.location.href = '/'
     }
 
     const navLinks = [
