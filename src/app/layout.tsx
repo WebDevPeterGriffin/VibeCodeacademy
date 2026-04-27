@@ -19,9 +19,7 @@ export const metadata: Metadata = {
   title: "VibeCode Bible Academy — Stop Renting. Start Owning.",
   description:
     "A structured learning platform for vibe coding. Learn to build with AI as your creative partner.",
-  icons: {
-    icon: "/v.png",
-  },
+
 };
 
 export default function RootLayout({
